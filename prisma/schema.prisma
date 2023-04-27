@@ -48,13 +48,14 @@ model Session {
 }
 
 model User {
-    id            String    @id @map("_id")
+    id            String    @id @default(auto()) @map("_id") @db.ObjectId
     name          String?
     email         String?   @unique
     emailVerified DateTime?
     image         String?
     accounts      Account[]
     sessions      Session[]
+    room Room[]
 }
 
 model VerificationToken {
@@ -64,4 +65,15 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Room {
+    id   String  @id @default(auto()) @map("_id") @db.ObjectId
+    name String?
+    expires      DateTime
+    owner User @relation(fields: [ownerId], references: [id])
+    ownerId String[] @db.ObjectId
+    
+
+
 }

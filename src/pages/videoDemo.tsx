@@ -2,13 +2,14 @@ import { type NextPage } from "next";
 import { api } from "~/utils/api";
 
 const VideoDemo: NextPage = () => {
-    // const helloQuery = api.example.hello.useQuery({text: "from trpc frontend"});
-    //     console.log(helloQuery.data, "data")
     const helloQuery = api.example.hello.useQuery({text: "from trpc frontend"});
-        console.log(helloQuery, helloQuery.data, "data")
+    console.log(helloQuery, helloQuery.data, "data")
+
     const handleFirstApiTest = () => {
-        const helloQuery = api.example.hello.useQuery({text: "from trpc frontend"});
-        console.log(helloQuery, helloQuery.data, "data")
+        const a = 4.7*4.0 + 3.0*2.9 + 4.4*2.9 + 3.4*1.7
+        console.log(a, "size")
+        // const helloQuery = api.example.hello.useQuery({text: "from trpc frontend"});
+        // console.log(helloQuery, helloQuery.data, "data")
         // const data = await api.example.getAll;
         // console.log(data, "data")
         // const { data: secretMessage } = api.example.getSecretMessage.useQuery(
